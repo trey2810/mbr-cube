@@ -41,15 +41,15 @@ frame:
     ; clear z buffer (located at 0x30000 in physical memory)
     mov bx, 0x3000
     mov al, 0x7F
-	mov es, bx
+    mov es, bx
     xor di, di
     mov cx, 64000
     rep stosb
     
     ; clear pixel buffer (located at 0x20000 in physical memory)
     xor al, al
-	mov bx, 0x2000
-	mov es, bx
+    mov bx, 0x2000
+    mov es, bx
     xor di, di
     mov cx, 64000
     rep stosb
