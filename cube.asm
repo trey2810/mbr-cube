@@ -2,20 +2,20 @@
     org 0x7c00
 
     ; initialize ds to 0
-	xor bx, bx
-	mov ds, bx
+    xor bx, bx
+    mov ds, bx
     ; initialize stack
-	mov sp, 0x7c00
+    mov sp, 0x7c00
     ; initialize FPU
-	fninit
+    fninit
     ; enter 320x200 256-color graphics mode (mode 13h)
-	mov ax, 0x13
-	int 0x10
+    mov ax, 0x13
+    int 0x10
     
     ; zero out a sector of the post-MBR storage in RAM, just in case it isn't zero
     xor bx, bx
     xor ax, ax
-	mov es, bx
+    mov es, bx
     mov di, 0x7e00
     mov cx, 512
     rep stosb
